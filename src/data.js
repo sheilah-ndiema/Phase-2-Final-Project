@@ -4,7 +4,7 @@ const items = [
         title: 'chapati',
         category: 'breakfast',
         price: 50,
-        img: './images/1.jpeg',
+        img: './images/1.jpg',
         desc: 'vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,',
     },
     {
