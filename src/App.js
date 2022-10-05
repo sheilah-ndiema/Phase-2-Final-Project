@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Menu from './Menu';
-import Categories from './Categories';
-import items from './data';
+import Categories from './Categories'
 
 
-
-const allCategories = ['all', ...new Set(items.map((item) => item.category))];
 
 function App() {
-    const [menuItems, setMenuItems] = useState(items);
-    const [categories, setCategories] = useState(allCategories);
+
+    const [menuItems, setMenuItems] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [currentCategory, setCurrentCategory] = useState("all")
+
+    useEffect(() => {
+        fetch("http://localhost:8001/items")
+            .then((resp) => resp.json())
+            .then((data) => {
+                setMenuItems(data);
+                setCategories(['all', ...new Set(data.map((item) => item.category))])
+            });
+    }, [])
+
 
     const filterItems = (category) => {
-        if (category === 'all') {
-            setMenuItems(items);
-            return;
-        }
-        const newItems = items.filter((item) => item.category === category);
-        setMenuItems(newItems);
+        setCurrentCategory(category)
     };
+    const filteredItems = currentCategory === 'all' ? [...menuItems] : menuItems.filter((item) => item.category === currentCategory);
 
     return (
         <main>
@@ -28,7 +33,7 @@ function App() {
 
                 </div>
                 <Categories categories={categories} filterItems={filterItems} />
-                <Menu items={menuItems} />
+                <Menu items={filteredItems} />
             </section>
         </main>
     );
