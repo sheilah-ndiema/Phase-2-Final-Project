@@ -9,7 +9,7 @@ By:[Sheilah ndiema](https://github.com/sheilah-ndiema)
 - Contains react components.
 - Uses React hooks'
 - Different menu categories can be added/removed dynamically i.e if a meal category is added, the category name will display automatically in the category buttons.
-  \*Use a json-server to create a RESTful API for the backend.
+- Uses json-server to create a RESTful API for the backend.
 
 ## Download and Setup
 
