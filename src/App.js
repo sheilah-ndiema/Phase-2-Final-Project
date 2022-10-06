@@ -3,7 +3,6 @@ import Menu from './Menu';
 import Categories from './Categories'
 
 
-
 function App() {
 
     const [menuItems, setMenuItems] = useState([]);
@@ -30,7 +29,6 @@ function App() {
             <section className="menu section">
                 <div className="title">
                     <h2>Jiko Cafe' Menu</h2>
-
                 </div>
                 <Categories categories={categories} filterItems={filterItems} />
                 <Menu items={filteredItems} />
