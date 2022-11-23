@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Menu from './Menu';
 import Categories from './Categories'
+import data from './data';
 
 
 function App() {
 
-    const [menuItems, setMenuItems] = useState([]);
-    const [categories, setCategories] = useState([]);
+    const [menuItems, setMenuItems] = useState(data);
+    const [categories, setCategories] = useState(['all', ...new Set(data.map((item) => item.category))]);
     const [currentCategory, setCurrentCategory] = useState("all")
 
     useEffect(() => {
